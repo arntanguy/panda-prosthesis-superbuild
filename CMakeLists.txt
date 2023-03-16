@@ -1,4 +1,5 @@
 option(WITH_PANDA_BRACE "Build the PandaBrace robot modules and controller" ON)
+option(WITH_TACTILE_FORCE_SENSOR_PLUGIN "Build the Tactile Force Sensor Plugin" ON)
 
 if(WITH_PANDA_BRACE)
 CreateCatkinWorkspace(ID panda_prosthesis_ws DIR panda/catkin_ws_panda_prosthesis CATKIN_BUILD)
@@ -30,3 +31,14 @@ AddProject(panda_prosthesis
   GIT_TAG origin/topic/V2
   DEPENDS mc_rtc mc_panda
 )
+
+if(WITH_TACTILE_FORCE_SENSOR_PLUGIN)
+AptInstall(libbluetooth-dev)
+AptInstall(ros-${ROS_DISTRO}-serial)
+AddProject(tactile_force_sensor_plugin
+  SUBFOLDER panda
+  GITE azermane/tactileforcesensorplugin
+  GIT_TAG origin/main
+  DEPENDS mc_rtc
+)
+endif()
