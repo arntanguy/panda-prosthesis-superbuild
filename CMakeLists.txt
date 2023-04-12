@@ -21,6 +21,7 @@ AddProject(mc_rtc_ati_daq
   GITE multi-contact/mc_rtc_ati_daq
   GIT_TAG origin/topic/multisensor
   NO_NINJA
+  NO_SOURCE_MONITOR
   DEPENDS mc_rtc
 )
 endif()
