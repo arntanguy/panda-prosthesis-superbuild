@@ -16,6 +16,12 @@ AddCatkinProject(brace_bottom_setup
   WORKSPACE panda_prosthesis_ws
 )
 
+AddCatkinProject(brace_urdf
+  GITHUB_PRIVATE arntanguy/brace_urdf
+  GIT_TAG origin/main
+  WORKSPACE panda_prosthesis_ws
+)
+
 AddProject(mc_rtc_ati_daq
   SUBFOLDER panda
   GITE multi-contact/mc_rtc_ati_daq
