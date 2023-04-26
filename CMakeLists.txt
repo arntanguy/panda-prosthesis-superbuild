@@ -29,6 +29,7 @@ AddProject(mc_rtc_ati_daq
   NO_NINJA
   NO_SOURCE_MONITOR
   DEPENDS mc_rtc
+  CMAKE_ARGS -DAUTOLOAD_AtiDaq_PLUGIN=OFF
 )
 endif()
 
@@ -47,5 +48,6 @@ AddProject(tactile_force_sensor_plugin
   GITE azermane/tactileforcesensorplugin
   GIT_TAG origin/main
   DEPENDS mc_rtc
+  CMAKE_ARGS -DAUTOLOAD_TFSPlugin_PLUGIN=OFF
 )
 endif()
