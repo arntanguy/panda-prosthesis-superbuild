@@ -12,6 +12,12 @@ AddCatkinProject(brace_top_setup
   WORKSPACE panda_prosthesis_ws
 )
 
+AddCatkinProject(brace_top_setup_brace
+  GITHUB_PRIVATE arntanguy/brace_top_setup_brace
+  GIT_TAG origin/main
+  WORKSPACE panda_prosthesis_ws
+)
+
 AddCatkinProject(brace_bottom_setup
   GITHUB_PRIVATE arntanguy/brace_bottom_setup
   GIT_TAG origin/main
