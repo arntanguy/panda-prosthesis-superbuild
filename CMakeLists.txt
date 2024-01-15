@@ -8,25 +8,25 @@ CreateCatkinWorkspace(ID panda_prosthesis_ws DIR panda/catkin_ws_panda_prosthesi
 
 AddCatkinProject(brace_top_setup
   GITHUB_PRIVATE arntanguy/brace_top_setup
-  GIT_TAG origin/main
+  GIT_TAG origin/ROS2
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_top_setup_brace
   GITHUB_PRIVATE arntanguy/brace_top_setup_brace
-  GIT_TAG origin/main
+  GIT_TAG origin/ROS2
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_bottom_setup
   GITHUB_PRIVATE arntanguy/brace_bottom_setup
-  GIT_TAG origin/main
+  GIT_TAG origin/ROS2
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_urdf
   GITHUB_PRIVATE arntanguy/brace_urdf
-  GIT_TAG origin/main
+  GIT_TAG origin/ROS2
   WORKSPACE panda_prosthesis_ws
 )
 endif()
@@ -46,7 +46,7 @@ endif()
 AddProject(panda_prosthesis
   SUBFOLDER panda
   GITHUB_PRIVATE arntanguy/panda_prosthesis
-  GIT_TAG origin/topic/V2
+  GIT_TAG origin/main
   DEPENDS mc_rtc mc_panda
 )
 
