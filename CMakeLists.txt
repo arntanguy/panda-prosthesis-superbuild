@@ -46,7 +46,7 @@ endif()
 AddProject(panda_prosthesis
   SUBFOLDER panda
   GITHUB_PRIVATE arntanguy/panda_prosthesis
-  GIT_TAG origin/ROS2
+  GIT_TAG origin/main
   DEPENDS mc_rtc mc_panda
 )
 
