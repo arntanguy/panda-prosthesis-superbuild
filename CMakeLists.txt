@@ -8,25 +8,25 @@ CreateCatkinWorkspace(ID panda_prosthesis_ws DIR panda/catkin_ws_panda_prosthesi
 
 AddCatkinProject(brace_top_setup
   GITHUB_PRIVATE arntanguy/brace_top_setup
-  GIT_TAG origin/ROS2
+  GIT_TAG origin/main
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_top_setup_brace
   GITHUB_PRIVATE arntanguy/brace_top_setup_brace
-  GIT_TAG origin/ROS2
+  GIT_TAG origin/main
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_bottom_setup
   GITHUB_PRIVATE arntanguy/brace_bottom_setup
-  GIT_TAG origin/ROS2
+  GIT_TAG origin/main
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_urdf
   GITHUB_PRIVATE arntanguy/brace_urdf
-  GIT_TAG origin/ROS2
+  GIT_TAG origin/main
   WORKSPACE panda_prosthesis_ws
 )
 endif()
@@ -39,7 +39,6 @@ AddProject(mc_rtc_ati_daq
   NO_NINJA
   NO_SOURCE_MONITOR
   DEPENDS mc_rtc
-  CMAKE_ARGS -DAUTOLOAD_AtiDaq_PLUGIN=OFF
 )
 endif()
 
@@ -58,7 +57,6 @@ AddProject(tactile_force_sensor_plugin
   GITE azermane/tactileforcesensorplugin
   GIT_TAG origin/main
   DEPENDS mc_rtc
-  CMAKE_ARGS -DAUTOLOAD_TFSPlugin_PLUGIN=OFF
 )
 endif()
 
