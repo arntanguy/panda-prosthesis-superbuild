@@ -3,32 +3,39 @@ option(WITH_TACTILE_FORCE_SENSOR_PLUGIN "Build the Tactile Force Sensor Plugin" 
 option(WITH_MC_RTC_ATI_DAQ "Build with ATI acquisition card" OFF)
 option(WITH_PHIDGET_PRESSURE_SENSOR_PLUGIN "Build with Phidget Pressure Sensor Plugin" OFF)
 
+if(NOT WITH_PandaLIRMM)
+  message(FATAL_ERROR "The PandaProsthesis controller requires WITH_PandaLIRMM=ON")
+  return ()
+endif()
+
+set(PANDA_PROSTHESIS_DEPENDENCIES "")
 if(WITH_PANDA_BRACE)
 CreateCatkinWorkspace(ID panda_prosthesis_ws DIR panda/catkin_ws_panda_prosthesis CATKIN_BUILD)
 
 AddCatkinProject(brace_top_setup
-  GITHUB_PRIVATE arntanguy/brace_top_setup
+  GITHUB arntanguy/brace_top_setup
   GIT_TAG origin/main
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_top_setup_brace
-  GITHUB_PRIVATE arntanguy/brace_top_setup_brace
+  GITHUB arntanguy/brace_top_setup_brace
   GIT_TAG origin/main
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_bottom_setup
-  GITHUB_PRIVATE arntanguy/brace_bottom_setup
+  GITHUB arntanguy/brace_bottom_setup
   GIT_TAG origin/main
   WORKSPACE panda_prosthesis_ws
 )
 
 AddCatkinProject(brace_urdf
-  GITHUB_PRIVATE arntanguy/brace_urdf
+  GITHUB arntanguy/brace_urdf
   GIT_TAG origin/main
   WORKSPACE panda_prosthesis_ws
 )
+list(APPEND PANDA_PROSTHESIS_DEPENDENCIES brace_top_setup brace_top_setup_brace brace_bottom_setup brace_urdf)
 endif()
 
 if(WITH_MC_RTC_ATI_DAQ)
@@ -42,11 +49,12 @@ AddProject(mc_rtc_ati_daq
 )
 endif()
 
+list(APPEND PANDA_PROSTHESIS_DEPENDENCIES mc_rtc mc_panda)
 AddProject(panda_prosthesis
   SUBFOLDER panda
-  GITHUB_PRIVATE arntanguy/panda_prosthesis
+  GITHUB jrl-umi3219/panda_prosthesis
   GIT_TAG origin/main
-  DEPENDS mc_rtc mc_panda
+  DEPENDS ${PANDA_PROSTHESIS_DEPENDENCIES}
 )
 
 if(WITH_TACTILE_FORCE_SENSOR_PLUGIN)
