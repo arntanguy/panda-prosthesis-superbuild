@@ -52,7 +52,7 @@ endif()
 list(APPEND PANDA_PROSTHESIS_DEPENDENCIES mc_rtc mc_panda)
 AddProject(panda_prosthesis
   SUBFOLDER panda
-  GITHUB jrl-umi3219/panda_prosthesis
+  GITHUB jrl-umi3218/panda_prosthesis
   GIT_TAG origin/main
   DEPENDS ${PANDA_PROSTHESIS_DEPENDENCIES}
 )
